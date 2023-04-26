@@ -23,7 +23,7 @@
 html,
 body {
   height: 100%;
-  background-color: var(--dark-gray);
+  background-color: var(--white-smoke);
 }
 
 body {
@@ -45,4 +45,23 @@ body {
 button:hover {
   cursor: pointer;
   opacity: 90%;
+}
+
+.card-example {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.card-example-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-example-description {
+  font-size: 16px;
+  margin-bottom: 5px;
 }

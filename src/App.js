@@ -1,35 +1,63 @@
-import { useState } from "react";
-import { Helmet } from "react-helmet";
-
-export default function App() {
+function FilterableCard() {
   return (
     <div>
-      <Head />
-      <Body />
+      <FormInput />
+      <SearchBar />
+      <Card />
     </div>
   );
 }
 
-function Head() {
+function FormInput() {
   return (
-    <Helmet>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="style.css" />
-      <title>Cookie Jar</title>
-    </Helmet>
-  );
-}
-
-function Body() {
-  return (
-    <div className="container">
+    <div>
       <h1>Cookie Jar</h1>
       <p>
         Write down your experiences that you've achieved or overcome as
         "cookies".
       </p>
+      <form>
+        <form>
+          <label>Title:</label>
+          <br />
+          <input />
+          <br />
+          <br />
+          <label>Description:</label>
+          <br />
+          <textarea></textarea>
+          <br />
+          <br />
+          <button>Add Cookie</button>
+        </form>
+        <hr />
+      </form>
     </div>
   );
+}
+
+function SearchBar() {
+  return (
+    <div>
+      <hr />
+      <p>Reach for them in time of need.</p>
+      <div>
+        <label>Search:</label>
+        <input />
+        <button>Search</button>
+      </div>
+    </div>
+  );
+}
+
+function Card() {
+  return (
+    <div>
+      <div className="card-output"></div>
+      <div className="card-example"></div>
+    </div>
+  );
+}
+export default function App() {
+  return <FilterableCard />;
 }
