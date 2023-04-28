@@ -1,104 +1,104 @@
-import * as React from "react";
-// import cardExample from "./markup.json";
+import React, { useState } from "react";
 
-export default function FilterableCard() {
-  const [title, setTitle] = React.useState("");
-  // const [description, setDescription] = useState("");
-  const [card, setCard] = React.useState([]);
+function App() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [cards, setCards] = useState([]);
+  const [search, setSearch] = useState("");
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
 
-  // const handleDescriptionChange = (event) => {
-  //   setDescription(event.target.value);
-  // };
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
 
-  const handleClick = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    const nextCard = {
+    const newCard = {
       title: title,
-      description: "a",
+      description: description,
       date: new Date().toLocaleString(),
     };
 
-    setCard([...card, nextCard]);
+    setCards([...cards, newCard]);
     setTitle("");
+    setDescription("");
   };
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value.toLowerCase());
+  };
+
+  const filteredCards = cards.filter(
+    (card) =>
+      card.title.toLowerCase().includes(search) ||
+      card.description.toLowerCase().includes(search)
+  );
 
   return (
     <div>
-      <FormInput
-        onSubmitClick={() => handleClick}
-        titleChange={() => handleTitleChange}
-      />
-      <SearchBar />
-      {/* <CardOutput /> */}
-      <CardExample
-        title="Graduated with honors"
-        description="Graduated from college with a 3.8 GPA"
-      />
-    </div>
-  );
-}
-
-function FormInput({ onSubmitClick, titleChange }) {
-  return (
-    <div className="form-input">
       <h1>Cookie Jar</h1>
       <p>
         Write down your experiences that you've achieved or overcome as
         "cookies".
       </p>
-      <form onClick={onSubmitClick}>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="title">Title:</label>
         <br />
-        <label>Title:</label>
-        <br />
-        <input onChange={titleChange} />
+        <input
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleTitleChange}
+          required
+        />
         <br />
         <br />
         <label>Description:</label>
         <br />
-        <textarea></textarea>
+        <textarea
+          name="description"
+          rows="5"
+          value={description}
+          onChange={handleDescriptionChange}
+          required
+        ></textarea>
         <br />
         <br />
-        <button className="btn">Add Cookie</button>
+        <button type="submit" className="btn">
+          Add Cookie
+        </button>
       </form>
-    </div>
-  );
-}
-
-function SearchBar() {
-  return (
-    <div>
       <br />
       <hr />
       <br />
       <p>Reach for them in time of need.</p>
       <div className="search-bar">
-        <label>Search:</label>
-        <input className="search-input" />
+        <label htmlFor="search">Search:</label>
+        <input
+          type="text"
+          name="search"
+          value={search}
+          onChange={handleSearch}
+          placeholder="Enter keywords"
+          className="search-input"
+        />
         <button className="btn">Search</button>
+      </div>
+      <div className="card-output">
+        {filteredCards.map((cookie, index) => (
+          <div key={index}>
+            <div className="card-title">{cookie.title}</div>
+            <div className="card-description">{cookie.description}</div>
+            <div className="card-date">{cookie.date}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-// function CardOutput() {
-//   return (
-//   );
-// }
-
-function CardExample({ title, description }) {
-  return (
-    <div>
-      <div className="card-title">{title}</div>
-      <div className="card-description">{description}</div>
-    </div>
-  );
-}
-
-// export default function App() {
-//   return <FilterableCard />;
-// }
+export default App;

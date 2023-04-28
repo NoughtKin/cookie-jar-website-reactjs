@@ -23,6 +23,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   display: flex;
   justify-content: center;
@@ -66,20 +67,18 @@ textarea {
   align-items: center;
   margin-bottom: 10px;
 }
-.search-bar label {
-  margin-right: 10px;
-}
+
 .search-input {
   flex: 1;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--light-grey);
 }
 
 .card-output {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: var(--white);
+  border: 1px solid var(--gainsboro);
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
@@ -95,5 +94,5 @@ textarea {
 }
 .card-date {
   font-size: 14px;
-  color: #666;
+  color: var(--dim-gray);
 }
