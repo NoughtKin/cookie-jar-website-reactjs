@@ -1,0 +1,16 @@
+{
+  "card-example": [
+    {
+      "title": "Graduated with honors",
+      "description": "Graduated from college with a 3.8 GPA"
+    },
+    {
+      "title": "Overcoming fear of heights",
+      "description": "Took up rock climbing and gradually pushed through the fear until it was no longer a significant issue"
+    },
+    {
+      "title": "Published first novel",
+      "description": "Wrote and published first novel after years of hard work and rejection"
+    }
+  ]
+}
