@@ -18,8 +18,6 @@ export default function App() {
     localStorage.setItem("DESCRIPTION", JSON.stringify(cards));
   }, [cards]);
 
-  const [search, setSearch] = useState("");
-
   function addCard(title, description) {
     setCards((currentCard) => {
       return [
@@ -32,6 +30,8 @@ export default function App() {
       ];
     });
   }
+
+  const [search, setSearch] = useState("");
 
   const handleSearch = (event) => {
     setSearch(event.target.value.toLowerCase());
@@ -47,7 +47,7 @@ export default function App() {
     <div>
       <FormInput addCard={addCard} />
       <hr />
-      <SearchBar />
+      <SearchBar handleSearch={handleSearch} />
       <div className="card-output">
         {filteredCards.map((cookie, index) => (
           <div key={index}>

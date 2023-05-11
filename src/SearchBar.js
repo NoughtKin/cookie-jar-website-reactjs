@@ -1,12 +1,6 @@
 import { useState } from "react";
 
-export function SearchBar() {
-  const [search, setSearch] = useState("");
-
-  const handleSearch = (event) => {
-    setSearch(event.target.value.toLowerCase());
-  };
-
+export function SearchBar({ search, handleSearch }) {
   return (
     <div>
       <p>Reach for them in time of need.</p>
