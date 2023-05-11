@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormInput } from "./FormInput";
 
 export default function App() {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState(() => {
+    const localItemValue = localStorage.getItem("TITLE");
+    if (localItemValue == null) return [];
+
+    const localDescriptionValue = localStorage.getItem("DESCRIPTION");
+    if (localDescriptionValue == null) return [];
+
+    return JSON.parse(localItemValue), JSON.parse(localDescriptionValue);
+  });
+
+  useEffect(() => {
+    localStorage.setItem("TITLE", JSON.stringify(cards));
+    localStorage.setItem("DESCRIPTION", JSON.stringify(cards));
+  }, [cards]);
+
   const [search, setSearch] = useState("");
 
   function addCard(title, description) {
@@ -31,9 +45,7 @@ export default function App() {
   return (
     <div>
       <FormInput addCard={addCard} />
-      <br />
       <hr />
-      <br />
       <p>Reach for them in time of need.</p>
       <div className="search-bar">
         <label htmlFor="search">Search:</label>

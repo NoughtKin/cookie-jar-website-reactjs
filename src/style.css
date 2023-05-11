@@ -56,9 +56,17 @@ body {
   transform: translateY(1px);
 }
 
+p {
+  margin: 10px;
+}
+
 textarea {
   width: 100%;
   max-width: 100%;
+}
+
+hr {
+  margin: 15px;
 }
 /* End shared utility & global classes */
 
