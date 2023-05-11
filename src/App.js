@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FormInput } from "./FormInput";
+import { SearchBar } from "./SearchBar";
 
 export default function App() {
   const [cards, setCards] = useState(() => {
@@ -46,19 +47,7 @@ export default function App() {
     <div>
       <FormInput addCard={addCard} />
       <hr />
-      <p>Reach for them in time of need.</p>
-      <div className="search-bar">
-        <label htmlFor="search">Search:</label>
-        <input
-          type="text"
-          name="search"
-          value={search}
-          onChange={handleSearch}
-          placeholder="Enter keywords"
-          className="search-input"
-        />
-        <button className="btn">Search</button>
-      </div>
+      <SearchBar />
       <div className="card-output">
         {filteredCards.map((cookie, index) => (
           <div key={index}>
