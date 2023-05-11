@@ -1,4 +1,17 @@
-export function FormInput() {
+import { useState } from "react";
+
+export function FormInput({ addCard }) {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    addCard(title, description);
+
+    setTitle("");
+    setDescription("");
+  };
+
   return (
     <div>
       <h1>Cookie Jar</h1>
@@ -13,7 +26,7 @@ export function FormInput() {
           type="text"
           name="title"
           value={title}
-          onChange={handleTitleChange}
+          onChange={(event) => setTitle(event.target.value)}
           required
         />
         <br />
@@ -24,7 +37,7 @@ export function FormInput() {
           name="description"
           rows="5"
           value={description}
-          onChange={handleDescriptionChange}
+          onChange={(event) => setDescription(event.target.value)}
           required
         ></textarea>
         <br />

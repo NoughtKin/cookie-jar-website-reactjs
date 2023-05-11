@@ -1,33 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FormInput } from "./FormInput";
 
 export default function App() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [cards, setCards] = useState([]);
   const [search, setSearch] = useState("");
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const newCard = {
-      title: title,
-      description: description,
-      date: new Date().toLocaleString(),
-    };
-
-    setCards([...cards, newCard]);
-    setTitle("");
-    setDescription("");
-  };
+  function addCard(title, description) {
+    setCards((currentCard) => {
+      return [
+        ...currentCard,
+        {
+          title: title,
+          description: description,
+          date: new Date().toLocaleString(),
+        },
+      ];
+    });
+  }
 
   const handleSearch = (event) => {
     setSearch(event.target.value.toLowerCase());
@@ -41,7 +30,7 @@ export default function App() {
 
   return (
     <div>
-      <FormInput />
+      <FormInput addCard={addCard} />
       <br />
       <hr />
       <br />
