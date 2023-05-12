@@ -84,7 +84,7 @@ hr {
   border: 1px solid var(--light-grey);
 }
 
-.card-output {
+.card {
   background-color: var(--white);
   border: 1px solid var(--gainsboro);
   border-radius: 5px;

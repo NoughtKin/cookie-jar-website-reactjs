@@ -51,7 +51,7 @@ export default function App() {
       <hr />
       <SearchBar handleSearch={handleSearch} />
       <Card filteredCards={filteredCards}></Card>
-      <div className="card-example">
+      <div className="card">
         {cardExample["cardExample"].map((card, index) => (
           <div key={index}>
             <div className="card-title">{card.title}</div>

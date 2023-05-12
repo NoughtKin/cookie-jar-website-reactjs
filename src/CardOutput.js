@@ -1,6 +1,6 @@
 export function CardOutput({ filteredCards }) {
   return (
-    <div className="card-output">
+    <div className="card">
       {filteredCards.map((cookie, index) => (
         <div key={index}>
           <div className="card-title">{cookie.title}</div>
