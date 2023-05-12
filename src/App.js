@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FormInput } from "./FormInput";
 import { SearchBar } from "./SearchBar";
 import { Card } from "./Card";
+import cardExample from "./card-example.json";
 
 export default function App() {
   const [cards, setCards] = useState(() => {
@@ -50,6 +51,14 @@ export default function App() {
       <hr />
       <SearchBar handleSearch={handleSearch} />
       <Card filteredCards={filteredCards}></Card>
+      <div className="card-example">
+        {cardExample["cardExample"].map((card, index) => (
+          <div key={index}>
+            <div className="card-title">{card.title}</div>
+            <div className="card-description">{card.description}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
