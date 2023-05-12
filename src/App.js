@@ -20,15 +20,15 @@ export default function App() {
     localStorage.setItem("DESCRIPTION", JSON.stringify(cards));
   }, [cards]);
 
-  function addCard(title, description) {
+  function addCardOutput(title, description) {
     setCards((currentCard) => {
       return [
-        ...currentCard,
         {
           title: title,
           description: description,
           date: new Date().toLocaleString(),
         },
+        ...currentCard,
       ];
     });
   }
@@ -47,7 +47,7 @@ export default function App() {
 
   return (
     <div>
-      <FormInput addCard={addCard} />
+      <FormInput addCardOutput={addCardOutput} />
       <hr />
       <SearchBar handleSearch={handleSearch} />
       <Card filteredCards={filteredCards}></Card>

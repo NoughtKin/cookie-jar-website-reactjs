@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export function FormInput({ addCard }) {
+export function FormInput({ addCardOutput }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    addCard(title, description);
+    addCardOutput(title, description);
 
     setTitle("");
     setDescription("");
