@@ -6,6 +6,7 @@ export function CardOutput({ filteredCards }) {
           <div className="card-title">{cookie.title}</div>
           <div className="card-description">{cookie.description}</div>
           <div className="card-date">{cookie.date}</div>
+          <hr />
         </div>
       ))}
     </div>

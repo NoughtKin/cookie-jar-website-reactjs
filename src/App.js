@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { FormInput } from "./FormInput";
 import { SearchBar } from "./SearchBar";
 import { Card } from "./Card";
@@ -47,6 +48,10 @@ export default function App() {
 
   return (
     <div>
+      <Helmet>
+        <title>Cookie Jar Memo</title>
+        <meta name="viewport" content="with=device-width, initial-scale=1.0" />
+      </Helmet>
       <FormInput addCardOutput={addCardOutput} />
       <hr />
       <SearchBar handleSearch={handleSearch} />
@@ -56,6 +61,7 @@ export default function App() {
           <div key={crypto.randomUUID()}>
             <div className="card-title">{card.title}</div>
             <div className="card-description">{card.description}</div>
+            <hr />
           </div>
         ))}
       </div>
