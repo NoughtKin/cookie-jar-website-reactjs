@@ -52,8 +52,8 @@ export default function App() {
       <SearchBar handleSearch={handleSearch} />
       <Card filteredCards={filteredCards}></Card>
       <div className="card">
-        {cardExample["cardExample"].map((card, index) => (
-          <div key={index}>
+        {cardExample["cardExample"].map((card) => (
+          <div key={crypto.randomUUID()}>
             <div className="card-title">{card.title}</div>
             <div className="card-description">{card.description}</div>
           </div>
