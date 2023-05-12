@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export function SearchBar({ search, handleSearch }) {
   return (
     <div>
